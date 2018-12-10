@@ -1,0 +1,15 @@
+{
+  "name": "aframedemo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dev": "lite-server",
+  "license": "MIT",
+  "dependencies": {
+    "aframe": "^0.8.2",
+    "leapjs": "^0.6.4",
+    "three-vive-controller": "^1.4.1"
+  },
+  "devDependencies": {
+    "@types/aframe": "^0.8.0"
+  }
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <!--Scripts needed from A-Frame, etc-->
+        <script src="./node_modules/aframe/build/aframe.js"></script>
+        <script src="https://js.leapmotion.com/leap-0.6.4.min.js"></script>
+        <script src="//js.leapmotion.com/leap-plugins-0.1.12.min.js"></script>
+        <script src="//js.leapmotion.com/leap.rigged-hand-0.1.7.min.js"></script>
+
+        <script src="./Scripts/game.js"></script>
+        <script src="./scripts/camera.js"></script>
+        
+        <script src="./scripts/leapHands.js"></script>
+        
+        <!------------------------------------>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Spider vs White Model Demo</title> <!--Title for the Website-->
+    </head>
+    
+<body>
+    <!-- This is the scene for the current game-->
+    <!--The ID can be retrived in JS via document.getElementById("id")-->
+    <a-scene> 
+
+        <!--Camera object, don't touch this (unless you're moving the pos of course!)-->
+        
+
+
+        <a-assets> <!--Model sources-->
+            <a-asset-item id="hand_left_obj" src="models/hand/hand.obj"></a-asset-item>
+            <a-asset-item id="camera1" src="models/man/FinalBaseMesh.obj"></a-asset-item>
+            <a-asset-item id="man1_obj" src = "models/man/man.obj"></a-asset-item>
+            <a-asset-item id="spider1_mat" src ="models/spider/Only_Spider_with_Animations_Export.mtl"></a-asset-item>
+            <a-asset-item id="spider1_obj" src = "models/spider/Only_Spider_with_Animations_Export.obj"></a-asset-item>>
+        </a-assets>
+
+        <!--#man1 refers to the 'id' above using the .obj file-->
+        <!--3d models, these are imported and are in the "models" folder.-->
+
+        <a-entity class = "handLeft">
+            <a-obj-model id="hand_left" src="#hand_left_obj" position="3 3 3" scale="1 1 1" rotation="0 -90 0">
+            </a-obj-model>
+        </a-entity>
+
+        <a-entity class="handRight">
+            <a-obj-model id="hand_right" src="#hand_left_obj" position="0 0 0" scale="0.05 0.05 0.05">
+            </a-obj-model>
+        </a-entity>
+
+        <!--This is the Camera wrapper. Use this to change position of camera-->
+        <a-entity id="mainChar">
+            <a-camera id="camera">
+                <a-obj-model id="main" src="#man1_obj" scale="0.2 0.2 0.2" rotation="0 180 0" position="0 2 0">
+                </a-obj-model>
+            </a-camera>
+        </a-entity>
+
+        <a-entity class="spiderChar">
+            <a-obj-model id="spider" src="#spider1_obj" mtl="#spider1_mat" position="0 0 0"scale="0.1 0.1 0.1">
+            </a-obj-model>
+        </a-entity>
+
+        
+
+
+        <!--Primitives, like boxes, etc. These are the boring ones-->
+        <a-plane position="0 0 -4" rotation="-90 0 0" width="400" height="400" color="red"></a-plane>
+        <a-sky color="#ECECEC"></a-sky>
+    </a-scene>
+    
+</body>
+</html>
